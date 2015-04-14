@@ -1,0 +1,270 @@
+html,
+body,
+.main-window-region
+  background-color: #17181b
+  height: 100%
+  -moz-user-select: none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  -o-user-select: none
+  font-family: 'Open Sans'
+
+#main-window
+  width: 100%
+  height: 100%
+  background-color: #17181b
+  box-shadow: 0 0 40px rgba(0, 0, 0, .75)
+  margin-left: auto
+  margin-right: auto
+  cursor: default
+
+  button
+    background-color: transparent
+    border: none
+    cursor: pointer
+    outline: none
+
+  #content
+    position: absolute
+    width: 100%
+    height: 100%
+    overflow: hidden
+
+#header
+  z-index: 10
+  position: absolute
+  top: 0
+  width: 100%
+  opacity: 0.97
+  height: 32px
+  background-color: #17181b
+  padding: 13px 0 0
+  text-align: center
+  -webkit-app-region: drag
+  h1
+    color: #fff
+    font-size: 0.9em
+    top: -3px
+    position: relative
+  .btn-set
+    position: absolute
+    left: 15px
+    z-index: 10
+  nav
+    -webkit-app-region: no-drag
+    &.darwin
+      position: absolute
+      left: 15px
+    &.fs-darwin
+      top: 0px
+      right: 7px
+      left: initial
+    &.win32, &.linux
+      right: 7px
+      left: initial
+    &.fs-win32, &.fs-linux
+      position: absolute
+      left: 2px
+      top: 2px
+  .btn-os
+    float: left
+    margin: 0 6px 0 0
+    background-color: #000
+    -webkit-background-size: 77px 12px
+    background-size: 77px 12px
+    -webkit-border-radius: 30px
+    border-radius: 30px
+    border: 0
+    color: transparent
+    display: inline-block
+    font-size: 10px
+    height: 12px
+    padding: 0
+    text-align: center
+    width: 12px
+    cursor: pointer
+    
+  .btn-set
+    &.win32
+      -webkit-background-size: auto auto
+      background-size: auto auto
+      top: 6px
+      right: 3px
+      .btn-os
+        float: left
+        margin: 0 2px 0 0
+        background: #000
+        -webkit-border-radius: 0px
+        -webkit-border-radius: 0px
+        border-radius: 0px
+        border: 0
+        color: transparent
+        display: inline-block
+        font-size: 10px
+        height: 16px
+        padding: 0
+        text-align: center
+        width: 20px
+        cursor: pointer
+        -webkit-filter: brightness(1)
+        
+    &.darwin
+      .btn-os
+        background-image: none
+        background-repeat: no-repeat
+        &.os-close
+          background-color: #fc5753
+        &.os-max
+          background-color: #33c748
+        &.os-min
+          background-color: #fdbc40     
+
+.header-shadow
+  -webkit-box-shadow: 0px 6px 8px -4px rgba(0, 0, 0, 0.9)
+  box-shadow: 0px 6px 8px -4px rgba(0, 0, 0, 0.9)
+
+
+// Navigation
+
+.filter-bar
+  z-index: 10
+  width: 100%
+  opacity: 0.97
+  height: 35px
+  background-color: #17181b
+  -webkit-user-select: none
+  position: absolute
+  top: 32px
+  height: 35px
+  -webkit-box-shadow: 0px 6px 8px -4px rgba(0, 0, 0, 0.9)
+  box-shadow: 0px 6px 8px -4px rgba(0, 0, 0, 0.9)
+  li
+    display: inline-block
+    a
+      padding: 0
+      display: inline
+      &:hover
+        background: none
+      &.active
+        border-bottom: 4px solid #2d72d9
+        background: none
+  .source
+    -webkit-box-sizing: content-box
+    box-sizing: content-box
+    color: #c3c5c7
+    text-align: center
+    cursor: pointer
+    height: 20px
+    padding: 10px 15px 1px 18px
+    &:hover
+      color: #fff
+  .nav
+    &.filters
+      float: left
+      margin-left: 10px
+    &.right
+      margin-right: 5px
+  .filter
+    padding: 10px 0 0
+    margin-left: 20px
+    > a
+      display: inline-block
+      padding: 0
+      color: #c3c5c7
+      background-color: transparent !important
+      &:hover
+        color: #fff
+    .value
+      color: #2d72d9
+      padding-left: 10px
+
+// List
+.list
+  height: 100%
+  width: calc(100% - 5px)
+  position: fixed
+  top: 0
+  left: 0
+  text-align: center
+  overflow-x: hidden
+  overflow-y: overlay
+  -webkit-overflow-scrolling: touch
+  &::-webkit-scrollbar
+    width: 5px
+  &::-webkit-scrollbar-track
+    background-color: #30333c
+    -webkit-border-radius: 2px
+    border-radius: 2px
+  &::-webkit-scrollbar-thumb
+    background-color: #83888c
+    -webkit-border-radius: 2px
+    border-radius: 2px
+    &:hover
+      background-color: #93989c
+  &::-webkit-resizer, &::-webkit-scrollbar-corner, &::-webkit-scrollbar-button, &::-webkit-scrollbar-track-piece
+    display: none
+  &::-webkit-scrollbar-track
+    margin-top: 65px
+
+  .items
+    padding-top: 65px
+    -webkit-user-select: none
+    text-align: left
+    display: -webkit-box
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: box
+    display: flex
+    -webkit-box-orient: horizontal
+    -webkit-flex-direction: row
+    flex-direction: row
+    -webkit-box-lines: multiple
+    -webkit-flex-wrap: wrap
+    flex-wrap: wrap
+    -webkit-box-pack: justify
+    -webkit-justify-content: space-between
+    justify-content: space-between
+    -webkit-align-content: flex-start
+    align-content: flex-start
+    -webkit-box-align: start
+    -webkit-align-items: flex-start
+    align-items: flex-start
+    width: calc(100% - 5px)
+
+    .item
+      display: inline-block
+      margin: 10px
+      float: left
+      font-size: 0.8em
+      overflow: hidden
+
+      &.game
+        width: 136px
+
+      &.channel
+        width: 200px
+
+        img
+          width: 200px
+          height: 100px
+
+      .title
+        color: white
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+
+      img
+        border-radius: 4px
+
+.status-bar
+  background-color: rgba(255, 255, 255, 0.8)
+  z-index: 9999
+  width: 100%
+  height: 65px
+  padding: 10px
+  position: fixed
+  top: 67px
+
+.favorites
+  margin-top: 200px
