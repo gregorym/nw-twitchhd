@@ -22,6 +22,7 @@
   "devDependencies": {
     "browserify": "latest",
     "gulp": "latest",
+    "gulp-clean": "latest",
     "gulp-concat": "latest",
     "gulp-react": "latest",
     "gulp-ruby-sass": "latest",

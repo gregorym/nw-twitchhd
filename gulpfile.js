@@ -1,4 +1,5 @@
 var gulp          = require('gulp');
+var clean         = require('gulp-clean');
 var concat        = require('gulp-concat');
 var sass          = require('gulp-ruby-sass');
 var react         = require('gulp-react');
@@ -45,6 +46,9 @@ gulp.task('default', ['move',  'browserify', 'sass', 'watch']);
 
 // Compile project
 gulp.task('dist', function(){
+  // Remove build/gems
+  gulp.src('build/gems', {read: false}).pipe(clean());
+
   var nw = new NwBuilder({
       files: './build/**/*',
       platforms: ['osx32'],
