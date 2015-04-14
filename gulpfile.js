@@ -47,7 +47,7 @@ gulp.task('default', ['move',  'browserify', 'sass', 'watch']);
 gulp.task('dist', function(){
   var nw = new NwBuilder({
       files: './build/**/*',
-      platforms: ['win', 'osx'],
+      platforms: ['osx32'],
       buildDir: './dist'
   });
 
