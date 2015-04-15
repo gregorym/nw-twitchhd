@@ -23,6 +23,7 @@ var Header = React.createClass({
         win.maximize();
         break;
       case "os-close":
+        global.Airplay.stop();
         win.close();
         break;
     }

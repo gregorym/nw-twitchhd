@@ -1,6 +1,6 @@
 var React = require('react');
 var Router = require('react-router');
-var StreamsStore = require('../stores/StreamsStore.js');
+var StreamsStore = require('../models/StreamsStore.js');
 
 var StatusBanner = React.createClass({
   getInitialState: function(){

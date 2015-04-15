@@ -1,6 +1,5 @@
 var React = require('react');
 var Router = require('react-router'); // or var Router = ReactRouter; in browsers
-var TransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 var DefaultRoute = Router.DefaultRoute;
 var Link = Router.Link;
 var Route = Router.Route;

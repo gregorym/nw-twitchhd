@@ -3,13 +3,14 @@
 <head>
   <title>Twitch HD</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="app.css">
+  <link rel="stylesheet" type="text/css" href="css/vendors/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/app.css">
 
 </head>
 <body>
 <div id="react"></div>
-<script src="./airplay.js"></script>
+
+<script type="text/javascript" src="js/utils/airplay.js"></script>
 <script type="text/javascript">
   global.gui = require('nw.gui');
 
@@ -30,7 +31,7 @@
   global.Airplay.install();
 
 </script>
-<script src="./bundle.js"></script>
+<script type="text/javascript" src="js/bundle.js"></script>
 
 </body>
 </html>

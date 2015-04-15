@@ -9,40 +9,34 @@ var source        = require('vinyl-source-stream');
 var NwBuilder     = require('node-webkit-builder');
 
 gulp.task('move', function() {
-    gulp
-    .src(['src/index.html', 'src/airplay.js', 'src/oauth.html', 'src/oauth.js', 'package.json', 'src/css/bootstrap.css', 'src/fonts', 'src/airplay-cli*'])
-    .pipe(gulp.dest('build'));
-
-    gulp
-    .src(['src/fonts/*'])
-    .pipe(gulp.dest('build/fonts'))
+  gulp.src(['app/index.html', 'package.json']).pipe(gulp.dest('build'));
+  gulp.src(['app/css/vendors/*']).pipe(gulp.dest('build/css/vendors/'));
+  gulp.src(['app/css/fonts/*']).pipe(gulp.dest('build/css/fonts/'));
+  gulp.src(['app/js/utils/*']).pipe(gulp.dest('build/js/utils/'));
+  gulp.src(['app/gems/*']).pipe(gulp.dest('build/gems/'));
 });
 
-gulp.task('browserify', function () {
-    return browserify('./src/index.js')
+gulp.task('js', function () {
+    return browserify('./app/js/index.js')
         .transform(reactify)
         .bundle()
         .pipe(source('bundle.js'))
-        .pipe(gulp.dest('build'))
+        .pipe(gulp.dest('build/js'))
+});
+
+gulp.task('css', function() {
+  return sass('app/css/') 
+    .pipe(concat('app.css'))
+    .pipe(gulp.dest('build/css/'));
 });
 
 gulp.task('watch', function() {
     gulp.watch([
-      'src/**/*.js', 
-      'src/**/*.sass', 
-      'src/*index.html', 
-    ], ['browserify', 'sass']);
+      'app/**/*' 
+    ], ['js', 'css']);
 });
 
-gulp.task('sass', function() {
-  return sass('./src/css/app.sass', { sourcemap: false })
-  .pipe(gulp.dest('build'));
-});
-
-gulp.task('default', ['move',  'browserify', 'sass', 'watch']);
-
-
-
+gulp.task('default', ['move', 'js', 'css', 'watch']);
 
 // Compile project
 gulp.task('dist', function(){

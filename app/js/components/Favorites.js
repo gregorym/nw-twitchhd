@@ -1,5 +1,5 @@
 var React = require('react');
-var UserStore = require('../stores/UserStore.js');
+var UserStore = require('../models/UserStore.js');
 var ChannelItem = require('../components/ChannelItem.js');
 
 var scopes = [

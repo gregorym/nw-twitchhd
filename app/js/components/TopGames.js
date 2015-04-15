@@ -1,6 +1,6 @@
 var React = require('react');
 var Router = require('react-router');
-var GamesStore = require('../stores/GamesStore.js');
+var GamesStore = require('../models/GamesStore.js');
 var GameItem = require('../components/GameItem.js');
 
 var TopGames = React.createClass({

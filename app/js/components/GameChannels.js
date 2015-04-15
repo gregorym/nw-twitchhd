@@ -1,7 +1,13 @@
 var React = require('react');
-var StreamsStore = require('../stores/StreamsStore.js');
+var Router = require('react-router');
+var StreamsStore = require('../models/StreamsStore.js');
 var ChannelItem = require('../components/ChannelItem.js');
-var TopChannels = React.createClass({
+
+var GameChannels = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
+
 
   getInitialState: function() {
     return {
@@ -11,7 +17,8 @@ var TopChannels = React.createClass({
 
   componentDidMount: function() {
     var that = this;
-    StreamsStore.getAll().then(function(data){
+    var option = { game: this.context.router.getCurrentQuery().game };
+    StreamsStore.getAll(option).then(function(data){
       that.setState({channels: data});
     });
   },
@@ -33,4 +40,4 @@ var TopChannels = React.createClass({
   }
 })
 
-module.exports = TopChannels;
+module.exports = GameChannels;
