@@ -18,9 +18,6 @@ var Navigation = React.createClass({
             <li className="source">
               <Link to="topChannels">Top Channels</Link>
             </li>
-            <li className="source">
-              <Link to="favorites">Favorites</Link>
-            </li>
           </ul>
         </div>
       </div>

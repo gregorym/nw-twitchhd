@@ -12,11 +12,13 @@ var TopGames      = require('./components/TopGames.js');
 var TopChannels   = require('./components/TopChannels.js');
 var GameChannels  = require('./components/GameChannels.js');
 var Favorites     = require('./components/Favorites.js');
+var Loader        = require('./components/Loader.js');
 
 var App = React.createClass({
   render: function () {
     return (
       <div className="main-window">
+        <Loader />
         <Header />
         <div id="content">
           <Nav />
@@ -37,7 +39,6 @@ var routes = (
     <Route name="topGames" handler={TopGames} path="/" />
     <Route name="topChannels" handler={TopChannels}/>
     <Route name="gameChannels" handler={GameChannels}/>
-    <Route name="favorites" handler={Favorites}/>
   </Route>
 );
 

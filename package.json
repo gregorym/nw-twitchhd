@@ -6,19 +6,17 @@
   "author": "Gregory Marcilhacy",
   "homepage": "",
   "single-instance": true,
-  
   "repository": {
     "type": "git",
     "url": "https://github.com/gregorym/nw-twitchhd.git"
   },
-
   "dependencies": {
     "react": "latest",
     "react-router": "0.13.2",
-    "alt": "0.14.4",
-    "superagent": "1.1.0"
+    "superagent": "1.1.0",
+    "ps-tree": "latest",
+    "lodash": "latest"
   },
-
   "devDependencies": {
     "browserify": "latest",
     "gulp": "latest",
@@ -26,12 +24,13 @@
     "gulp-concat": "latest",
     "gulp-react": "latest",
     "gulp-ruby-sass": "latest",
+    "gulp-shell": "^0.4.1",
+    "gulp-download": "latest",
     "node-webkit-builder": "latest",
+    "qap": "latest",
     "reactify": "latest",
-    "vinyl-source-stream": "latest",
-    "qap": "latest"
+    "vinyl-source-stream": "latest"
   },
-
   "window": {
     "title": "TwitchHD",
     "width": 900,
@@ -41,7 +40,6 @@
     "frame": true,
     "toolbar": true
   },
-
   "scripts": {
     "build": "gulp"
   }
