@@ -25,11 +25,11 @@
     "gulp-react": "latest",
     "gulp-ruby-sass": "latest",
     "gulp-shell": "^0.4.1",
-    "gulp-download": "latest",
-    "node-webkit-builder": "latest",
+    "gulp-zip": "^3.0.2",
     "qap": "latest",
     "reactify": "latest",
-    "vinyl-source-stream": "latest"
+    "vinyl-source-stream": "latest",
+    "gulp-node-webkit-builder": "git+https://github.com/leftstick/gulp-node-webkit-builder#4f47411172c22f188bc3c385e9f7299d3220d1ca"
   },
   "window": {
     "title": "TwitchHD",
@@ -37,8 +37,7 @@
     "height": 580,
     "toolbar": false,
     "show": false,
-    "frame": true,
-    "toolbar": true
+    "frame": false
   },
   "scripts": {
     "build": "gulp"

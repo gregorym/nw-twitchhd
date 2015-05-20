@@ -6,9 +6,8 @@ var react         = require('gulp-react');
 var browserify    = require('browserify');
 var reactify      = require('reactify');
 var source        = require('vinyl-source-stream');
-var NwBuilder     = require('node-webkit-builder');
-var download      = require("gulp-download");
-var shell         = require('gulp-shell')
+var builder       = require('gulp-node-webkit-builder');
+var zip           = require('gulp-zip');
 
 gulp.task('move', function() {
   gulp.src(['app/index.html', 'package.json']).pipe(gulp.dest('build'));
@@ -23,58 +22,41 @@ gulp.task('js', function () {
         .transform(reactify)
         .bundle()
         .pipe(source('bundle.js'))
-        .pipe(gulp.dest('build/js'))
+        .pipe(gulp.dest('build/js'));
 });
 
 gulp.task('css', function() {
-  return sass('app/css/') 
+  return sass('app/css/')
     .pipe(concat('app.css'))
     .pipe(gulp.dest('build/css/'));
 });
 
 gulp.task('watch', function() {
     gulp.watch([
-      'app/**/*' 
+      'app/**/*'
     ], ['js', 'css']);
 });
 
 gulp.task('default', ['move', 'js', 'css', 'watch']);
 
-
-gulp.task('install_ruby', function(){
-  download("http://rvm.io/binaries/osx/10.8/x86_64/ruby-2.2.1.tar.bz2")
-    .pipe(gulp.dest("./tmp"))
-    .pipe(shell([
-      "rm -fr ./build/ruby",
-      "mkdir ./build/ruby",
-      "mkdir ./build/ruby/ruby_gems",
-      
-      "tar -jxf ./tmp/ruby-2.2.1.tar.bz2  -C ./tmp",
-      "mv ./tmp/ruby-2.2.1 ./build/ruby/exec_mac",
-      "cd ./build/ruby/ruby_gems",
-      "export GEM_HOME=`pwd`; export GEM_PATH=`pwd`; ./../exec_mac/bin/gem install airplay-cli --no-ri --no-rdoc"
-    ]))
-});
-
 // Compile project
-gulp.task('dist', function(){
-  shell([
-    
-  ]);
-
-  var nw = new NwBuilder({
-      files: './build/**/*',
-      platforms: ['osx32'],
-      buildDir: './dist'
-  });
-
-  nw.on('log',  console.log);
-
-  // Build returns a promise
-  nw.build().then(function () {
-     console.log('all done!');
-  }).catch(function (error) {
-      console.error(error);
-  });
-
+gulp.task('nw-builder', function(){
+  return gulp.src(['./build/**/*'])
+      .pipe(builder({
+        files: './build/**/*',
+        platforms: ['osx32'],
+        buildDir: './dist',
+        version: '0.12.1'
+      }));
 });
+
+gulp.task('zip', ['nw-builder'], function(){
+  var package = require('./package.json');
+  var zipName = [package.name, ".v", package.version, ".mac.zip"].join("");
+
+  return gulp.src('./dist/TwitchHD/osx32/**/*')
+          .pipe(zip(zipName))
+          .pipe(gulp.dest('./dist/TwitchHD/osx32/'));
+});
+
+gulp.task('compile', ['nw-builder', 'zip']);
