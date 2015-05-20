@@ -8,7 +8,7 @@ var GameItem = React.createClass({
 
   handleClick: function(){
     this.context.router.transitionTo(
-      'gameChannels', 
+      'gameChannels',
       { game: this.props.game.game.name },
       { game: this.props.game.game.name }
     );

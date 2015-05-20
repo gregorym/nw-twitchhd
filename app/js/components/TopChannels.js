@@ -19,7 +19,7 @@ var TopChannels = React.createClass({
   render: function() {
     var channels = [];
     for (var i = 0; i < this.state.channels.length; i++) {
-      channels.push(<ChannelItem channel={this.state.channels[i]} />);
+      channels.push(<ChannelItem key={i} channel={this.state.channels[i]} />);
     };
     return (
       <div>

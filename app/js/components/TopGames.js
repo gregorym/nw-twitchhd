@@ -20,7 +20,7 @@ var TopGames = React.createClass({
   render: function() {
     var games = [];
     for (var i = 0; i < this.state.games.length; i++) {
-      games.push(<GameItem game={this.state.games[i]} />);
+      games.push(<GameItem key={i} game={this.state.games[i]} />);
     };
     return (
       <div>

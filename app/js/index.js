@@ -13,9 +13,16 @@ var TopChannels   = require('./components/TopChannels.js');
 var GameChannels  = require('./components/GameChannels.js');
 var Favorites     = require('./components/Favorites.js');
 var Loader        = require('./components/Loader.js');
+var TransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 
 var App = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
+  
   render: function () {
+    var name = this.context.router.getCurrentPath();
+
     return (
       <div className="main-window">
         <Loader />
@@ -25,7 +32,9 @@ var App = React.createClass({
           <div id="main-browser">
             <div className="list-region">
               <StatusBanner />
-              <RouteHandler/>
+              <TransitionGroup component="div" transitionName="example">
+                <RouteHandler key={name}/>
+              </TransitionGroup>
             </div>
           </div>
         </div>

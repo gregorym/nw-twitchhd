@@ -33,7 +33,7 @@ var Header = React.createClass({
     var buttons = this.state.buttons[this.state.platform];
     var buttonList = [];
     for (var i = 0; i < buttons.length; i++) {
-      buttonList.push(<button onClick={this.handleClick} className={"btn-os os-"+buttons[i]}></button>);
+      buttonList.push(<button key={i} onClick={this.handleClick} className={"btn-os os-"+buttons[i]}></button>);
     };
 
     return (
