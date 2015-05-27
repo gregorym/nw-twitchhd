@@ -240,6 +240,10 @@ body,
       float: left
       font-size: 0.8em
       overflow: hidden
+      cursor: pointer
+
+      &:hover img
+        box-shadow: 0 0 0 5px red
 
       &.game
         width: 136px
@@ -273,5 +277,22 @@ body,
   position: fixed
   top: 67px
 
+  .who
+    margin-left: -55px
+
+    .name
+      font-weight: bold
+  
+  .actions
+    text-align: right
+    .glyphicon
+      font-size: 26px
+      margin-left: 5px
+      margin-top: 10px
+
 .favorites
   margin-top: 200px
+
+
+.sweet-alert .more
+  font-size: 12px

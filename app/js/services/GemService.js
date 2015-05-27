@@ -23,7 +23,7 @@ function install(gemName) {
   var PromiseCallback = function(resolve, reject) {
     exec(cmd, function(error, stdout, stderr) {
       if (error)
-        _reject(error);
+        reject(error);
 
       if (stdout)
         resolve();

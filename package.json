@@ -35,9 +35,9 @@
     "title": "TwitchHD",
     "width": 900,
     "height": 580,
-    "toolbar": false,
+    "toolbar": true,
     "show": false,
-    "frame": false
+    "frame": true
   },
   "scripts": {
     "build": "gulp"

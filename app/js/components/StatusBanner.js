@@ -32,19 +32,20 @@ var StatusBanner = React.createClass({
       var channel = this.state.channel;
       block = (
         <div className="status-bar row">
-          <div className="col-xs-1">
+          <div className="col-xs-2">
             <img src={channel.preview.small} />
           </div>
-          <div className="col-xs-6">
-            <span>{channel.channel.display_name}</span>
-            <p>
-              <span>Playing </span>
-              <span>{channel.channel.game}</span>
-            </p>
+          <div className="col-xs-5">
+            <div className="who">
+              <span className="name">{channel.channel.display_name}</span>
+              <p>
+                <span>Playing </span>
+                <span>{channel.channel.game}</span>
+              </p>
+            </div>
           </div>
-          <div className="col-xs-1 col-xs-offset-4">
-            <i className="glyphicon glyphicon-facetime-video" />
-            <i onClick={this.handleStopStream} className="glyphicon glyphicon-remove" />
+          <div className="col-xs-2 col-xs-offset-3 actions">
+            <i title="Stop Stream" onClick={this.handleStopStream} className="glyphicon glyphicon-remove" />
           </div>
         </div>
       )
