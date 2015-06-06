@@ -3,7 +3,9 @@
     <title>Brioche - Watch Twitch on your AppleTV</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:300|Lobster' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"  type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylsheet" href="css/app.css"  type='text/css'>
+    <script src="//load.sumome.com/" data-sumo-site-id="d8485865d8a995348a1ea431c87f3c430691c41aaf7730a8f0f0e38757655dd1" async="async"></script>
     <style>
       body {
         background-color: #52596b;
@@ -11,6 +13,10 @@
 
       .main {
         margin: 4em auto;
+        background-image: url('./img/app.png');
+        background-size: 600px;
+        background-repeat: no-repeat;
+        background-position: 450px;
       }
 
       h1 {
@@ -21,11 +27,44 @@
         letter-spacing: 1px;
       }
 
-      h2{
+      h2 {
+        font-family: 'Lato';
         font-size: 52px;
         font-weight: 300;
-        font-family: 'Lato';
         color: white;
+      }
+
+      .pure-button {
+        font-family: 'Lato';
+        padding: 1em 2em 1em 1em;
+        font-size: 1.2em;
+      }
+
+      .pure-button i {
+        margin-right: 1em;
+        font-size: 20px;
+      }
+
+      .pure-button.beta {
+        background-color: #C2FE99;
+      }
+
+      .pure-button.store {
+        display: none;
+        background-color: #EF7A9A;
+      }
+
+      .tagline {
+        margin-top: 3em;
+        margin-bottom: 2em;
+      }
+
+      .screenshot {
+        overflow: hidden;
+      }
+
+      .screenshot img {
+        height: 600px;
       }
 
     </style>
@@ -37,15 +76,31 @@
           <h1>Brioche</h1>
         </div>
 
-        <div class="pure-u-3-5">
-          <h2>Watch Twitch on your AppleTV.</h2>
-        </div>
+        <div class="pure-g">
+          <div class="pure-u-3-5">
+            <h2 class="tagline">Watch Twitch on your AppleTV.</h2>
+            <div class="pure-g">
+              <div class="pure-u-1-2">
+                <a class="pure-button beta" href="http://eepurl.com/bpFsNz"  title="Join the Private Beta List">
+                  <i class="fa fa-sign-in"></i>
+                    Join the Private Beta
+                </a>
+
+              </div>
 
 
-        <div class="pure-u-2-5">
+              <div class="pure-u-1-2">
+                <a class="pure-button pure-button-disabled store" href="#" title="Available soon">
+                  <i class="fa fa-apple"></i>
+                    Buy on the App Store
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
     </div>
+
   </body>
 </html>
