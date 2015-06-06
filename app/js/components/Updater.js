@@ -17,7 +17,7 @@ var Updater = React.createClass({
 
   handleNotificationClick: function(){
     new Notification("Downloading new version", {
-      body: "TwitchHD will restart once the application is updated"
+      body: "Brioche will restart once the application is updated"
     });
     this.getLatestVersion();
   },

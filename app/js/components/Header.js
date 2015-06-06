@@ -44,7 +44,7 @@ var Header = React.createClass({
           </nav>
 
           <h1>
-            TwitchHD
+            Brioche
           </h1>
         </div>
       </div>

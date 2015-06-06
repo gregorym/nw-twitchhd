@@ -1,6 +1,6 @@
 {
-  "name": "TwitchHD",
-  "version": "0.0.3",
+  "name": "Brioche",
+  "version": "0.0.4",
   "license": "MIT",
   "main": "index.html",
   "author": "Gregory Marcilhacy",
@@ -35,9 +35,9 @@
     "title": "TwitchHD",
     "width": 900,
     "height": 580,
-    "toolbar": true,
+    "toolbar": false,
     "show": false,
-    "frame": true
+    "frame": false
   },
   "scripts": {
     "build": "gulp"
